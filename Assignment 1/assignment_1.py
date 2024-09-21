@@ -73,6 +73,7 @@ tf_d1 = []
 tf_d2 = []
 tf_d3 = []
 
+term_count = 0
 df_terms = []
 
 idf_terms = []
@@ -97,11 +98,18 @@ for i in range(len(terms)):
   tf_d1.append(float("{:.2f}".format(d1_count[i] / sum(d1_count))))
   tf_d2.append(float("{:.2f}".format(d2_count[i] / sum(d2_count))))
   tf_d3.append(float("{:.2f}".format(d3_count[i] / sum(d3_count))))
-  df_terms.append(d1_count[i] + d2_count[i] + d3_count[i])
+  if d1_count[i] != 0:
+    term_count = term_count + 1
+  if d2_count[i] != 0:
+    term_count = term_count + 1
+  if d3_count[i] != 0:
+    term_count = term_count + 1
+  df_terms.append(term_count)
   idf_terms.append(float("{:.2f}".format(math.log((abs(total_docs) / df_terms[i]), 10))))
   tf_idf_d1.append(float("{:.2f}".format(tf_d1[i] * idf_terms[i])))
   tf_idf_d2.append(float("{:.2f}".format(tf_d2[i] * idf_terms[i])))
   tf_idf_d3.append(float("{:.2f}".format(tf_d3[i] * idf_terms[i])))
+  term_count = 0
 
 # adding in headers and labels 
 terms.insert(0, "Document-Term\nMatrix")
