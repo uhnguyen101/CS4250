@@ -1,13 +1,13 @@
 #-------------------------------------------------------------------------
-# AUTHOR: your name
-# FILENAME: title of the source file
-# SPECIFICATION: description of the program
-# FOR: CS 4250- Assignment #2
-# TIME SPENT: how long it took you to complete the assignment
+# AUTHOR: UyenNghi Nguyen
+# FILENAME: index_mongo.py
+# SPECIFICATION: Driver program to show menu and trigger operations.
+# FOR: CS 4250 - Assignment #2
+# TIME SPENT: 2 hours
 #-----------------------------------------------------------*/
 
 from pymongo import MongoClient  # import mongo client to connect
-from db_connection_mongo_solution import *
+from db_connection_mongo import *
 
 if __name__ == '__main__':
 
@@ -61,6 +61,7 @@ if __name__ == '__main__':
           elif (option == "d"):
 
               index = getIndex(documents)
+
               print(index)
 
           elif (option == "q"):
